@@ -7,5 +7,7 @@ pluginManagement {
 }
 
 rootProject.name = 'e-heath-service'
+include "e-health-domain"
 include "e-health-authentication"
 include "e-health-rest"
+include "e-health-persitence"
