@@ -5,7 +5,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
-rootProject.name = 'e-heath-service'
-include "e-health-authentication"
-include "e-health-rest"
+rootProject.name = 'e-heath-auth'

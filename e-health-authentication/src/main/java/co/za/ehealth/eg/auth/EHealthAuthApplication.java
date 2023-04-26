@@ -1,13 +1,13 @@
-package za.co.health.eg.eheathservice;
+package co.za.ehealth.eg.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EHeathServiceApplication {
+public class EHealthAuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EHeathServiceApplication.class, args);
+        SpringApplication.run(EHealthAuthApplication.class, args);
     }
 
 }
