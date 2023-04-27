@@ -7,5 +7,5 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Doctor  extends UserAccount {
+public class Doctor extends UserAccount {
 }
