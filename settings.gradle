@@ -8,6 +8,4 @@ pluginManagement {
 
 rootProject.name = 'e-heath-service'
 include "e-health-domain"
-include "e-health-authentication" // authentication layer
-include "e-health-rest" //Business layer
-include "e-health-persitence" //persistence
+include "e-health" // authentication layer

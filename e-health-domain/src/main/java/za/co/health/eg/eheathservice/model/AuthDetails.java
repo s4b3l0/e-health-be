@@ -15,7 +15,8 @@ public class AuthDetails {
     private String username;
     private String email;
     private String password;
-    private List<AccountType> permissions = new ArrayList<>();
+    private byte[] passwordMd5;
+    private List<AccountType> permissions;
     //TODO: add data to tokens
     private String token;
     private String session;
@@ -23,6 +24,7 @@ public class AuthDetails {
 
     public void addPermissions(AccountType accountType) {
         if (accountType == null) return;
+        permissions = new ArrayList<>();
         switch (accountType.getId()) {
             case 'A':
                 this.permissions.add(AccountType.ADMIN);
@@ -36,4 +38,7 @@ public class AuthDetails {
         }
     }
 
+    public AuthDetails createUser(AuthDetails authDetails) {
+        return null;
+    }
 }
