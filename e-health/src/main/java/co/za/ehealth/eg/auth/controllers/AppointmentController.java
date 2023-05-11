@@ -1,8 +1,8 @@
-package co.za.ehealth.eg.auth.rest;
+package co.za.ehealth.eg.auth.controllers;
 
 
 import co.za.ehealth.eg.auth.entity.Appointment;
-import co.za.ehealth.eg.auth.rest.impl.GenericController;
+import co.za.ehealth.eg.auth.controllers.impl.GenericController;
 import co.za.ehealth.eg.auth.service.AppointmentService;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +10,8 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("patient")
-public class AppointmentController extends GenericController<AppointmentService, Appointment> {
-
+@RequestMapping("appointment")
+public class AppointmentController extends GenericController<AppointmentService, Appointment, Long> {
     private final AppointmentService appointmentService;
 
     public AppointmentController(AppointmentService appointmentService) {

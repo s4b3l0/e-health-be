@@ -25,6 +25,8 @@ public class Patient implements Serializable {
         this.id = id;
     }
 
+
+    @Column(name = "S_EMAIL")
     public String getEmail() {
         return email;
     }
@@ -40,15 +42,6 @@ public class Patient implements Serializable {
 
     public void setUserAccount(UserAccount userAccount) {
         this.userAccount = userAccount;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL)
-    public List<Disease> getDiseases() {
-        return diseases;
-    }
-
-    public void setDiseases(List<Disease> diseases) {
-        this.diseases = diseases;
     }
 
     @OneToMany(cascade = CascadeType.ALL)

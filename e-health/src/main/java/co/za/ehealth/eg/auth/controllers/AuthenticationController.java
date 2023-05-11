@@ -1,4 +1,4 @@
-package co.za.ehealth.eg.auth.rest;
+package co.za.ehealth.eg.auth.controllers;
 
 import co.za.ehealth.eg.auth.service.AuthService;
 import org.springframework.http.ResponseEntity;

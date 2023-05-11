@@ -9,6 +9,7 @@ public class Disease implements Serializable {
     private Long id;
     private String name;
     private String type;
+    private String patient;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,5 +35,13 @@ public class Disease implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getPatient() {
+        return patient;
+    }
+
+    public void setPatient(String patient) {
+        this.patient = patient;
     }
 }

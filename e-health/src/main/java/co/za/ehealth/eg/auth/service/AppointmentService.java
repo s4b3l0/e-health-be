@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AppointmentService extends GenericService<AppointmentRepository, Appointment> {
+public class AppointmentService extends GenericService<AppointmentRepository, Appointment, String> {
     private final AppointmentRepository appointmentRepository;
 
     public AppointmentService(AppointmentRepository appointmentRepository) {
@@ -18,9 +18,9 @@ public class AppointmentService extends GenericService<AppointmentRepository, Ap
 
     public List<Appointment> findByEmail(String email, char type) {
         if (type == 'p') {
-            return this.appointmentRepository.findAllByDoctor_Email(email);
+            return this.appointmentRepository.findAllByDoctor(email);
         } else {
-            return this.appointmentRepository.findAllByPatient_Email(email);
+            return this.appointmentRepository.findAllByPatient(email);
         }
     }
 

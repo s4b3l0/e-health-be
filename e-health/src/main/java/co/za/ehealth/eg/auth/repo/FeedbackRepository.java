@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
-    List<Feedback> findAllByDoctor_Email(String email);
-    List<Feedback> findAllByPatient_Email(String email);
+    List<Feedback> findAllByDoctor(String email);
+    List<Feedback> findAllByPatient(String email);
 }

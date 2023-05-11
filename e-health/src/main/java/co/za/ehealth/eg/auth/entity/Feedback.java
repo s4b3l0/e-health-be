@@ -7,12 +7,15 @@ import java.io.Serializable;
 @Table(name = "FEEDBACK", schema = "E_HEALTH")
 public class Feedback implements Serializable {
     private Long id;
-    private String name;
-    private UserAccount doctor;
-    private UserAccount patient;
+    private String title;
+
+    private String text;
+    private String doctor;
+    private String patient;
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -21,29 +24,36 @@ public class Feedback implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    public UserAccount getDoctor() {
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(UserAccount doctor) {
+    public void setDoctor(String doctor) {
         this.doctor = doctor;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    public UserAccount getPatient() {
+    public String getPatient() {
         return patient;
     }
 
-    public void setPatient(UserAccount patient) {
+    public void setPatient(String patient) {
         this.patient = patient;
     }
 }

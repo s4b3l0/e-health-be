@@ -6,13 +6,20 @@ import co.za.ehealth.eg.auth.repo.DiseaseRepository;
 import co.za.ehealth.eg.auth.service.impl.GenericService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class DiseaseService extends GenericService<DiseaseRepository, Disease> {
+public class DiseaseService extends GenericService<DiseaseRepository, Disease, String> {
     private DiseaseRepository diseaseRepository;
 
     public DiseaseService(DiseaseRepository diseaseRepository) {
         super(diseaseRepository);
         this.diseaseRepository = diseaseRepository;
     }
+
+    public List<Disease> getByEmail(String email) {
+        return diseaseRepository.getAllByPatient(email);
+    }
+
 
 }

@@ -2,16 +2,16 @@ package co.za.ehealth.eg.auth.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.ZonedDateTime;
 
 @Entity
 @Table( name = "APPOINTMENT", schema="E_HEALTH")
 public class Appointment implements Serializable {
     private Long id;
-    private ZonedDateTime effFrom;
-    private ZonedDateTime effTo;
-    private UserAccount patient;
-    private UserAccount doctor;
+    private String day;
+    private String timeFrom;
+    private String timeTo;
+    private String patient;
+    private String doctor;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,39 +23,43 @@ public class Appointment implements Serializable {
         this.id = id;
     }
 
-
-    public ZonedDateTime getEffFrom() {
-        return effFrom;
+    public String getDay() {
+        return day;
     }
 
-    public void setEffFrom(ZonedDateTime effFrom) {
-        this.effFrom = effFrom;
+    public void setDay(String day) {
+        this.day = day;
     }
 
-    public ZonedDateTime getEffTo() {
-        return effTo;
+    public String getTimeFrom() {
+        return timeFrom;
     }
 
-    public void setEffTo(ZonedDateTime effTo) {
-        this.effTo = effTo;
+    public void setTimeFrom(String timeFrom) {
+        this.timeFrom = timeFrom;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    public UserAccount getPatient() {
+    public String getTimeTo() {
+        return timeTo;
+    }
+
+    public void setTimeTo(String timeTo) {
+        this.timeTo = timeTo;
+    }
+
+    public String getPatient() {
         return patient;
     }
 
-    public void setPatient(UserAccount patient) {
+    public void setPatient(String patient) {
         this.patient = patient;
     }
 
-
-    @OneToOne(cascade =  CascadeType.ALL)
-    public UserAccount getDoctor() {
+    public String getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(UserAccount doctor) {
+    public void setDoctor(String doctor) {
         this.doctor = doctor;
     }
 }

@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 @Service
-public class AuthService extends GenericService<UserAccountRepository, UserAccount> {
+public class AuthService extends GenericService<UserAccountRepository, UserAccount, String> {
 
     private UserAccountRepository userAccountRepository;
 
@@ -58,13 +58,14 @@ public class AuthService extends GenericService<UserAccountRepository, UserAccou
                 return createMockUsers();
             }
             final Optional<UserAccount> userAccount = userAccountRepository.findById(email);
-            if (!userAccount.isPresent()) {
+            if (userAccount.isEmpty()) {
                 return null;
             }
             final AuthDetails res = AuthDetails.builder()
                     .username(userAccount.get().getUserName())
+                    .email(userAccount.get().getEmail())
                     .accountType(AccountType.getById(userAccount.get().getAccountType().getId()))
-                    .password(userAccount.get().getPassword())
+                    .passwordMd5(userAccount.get().getPassword())
                     .build();
             return res;
         } catch (Exception e) {
@@ -78,7 +79,7 @@ public class AuthService extends GenericService<UserAccountRepository, UserAccou
             final UserAccount userAccount = userAccountRepository.getOne(authDetails.getUsername());
             userAccount.setAccountType(UserAccount.AccountType.getById(authDetails.getAccountType().getId()));
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            userAccount.setPassword(String.valueOf(messageDigest.digest(authDetails.getPassword().getBytes())));
+            userAccount.setPassword(messageDigest.digest(authDetails.getPassword().getBytes()));
         } catch (Exception e) {
             e.printStackTrace();
         }

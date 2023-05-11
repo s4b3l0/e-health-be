@@ -1,15 +1,13 @@
 package co.za.ehealth.eg.auth.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "USER_ACCOUNT", schema = "E_HEALTH")
 public class UserAccount implements Serializable {
     private String userName;
-    private String password;
+    private byte[] password;
 
     private String email;
 
@@ -24,11 +22,11 @@ public class UserAccount implements Serializable {
 
     private AccountType accountType;
 
-    public String getPassword() {
+    public byte[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(byte[] password) {
         this.password = password;
     }
 
