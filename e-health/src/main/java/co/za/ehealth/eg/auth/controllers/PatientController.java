@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("patient")
-public class PatientController extends GenericController<PatientService, Patient, Long> {
+public class PatientController extends GenericController<PatientService, Patient, String> {
 
     PatientService patientService;
 

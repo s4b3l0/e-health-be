@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 @Service
 public class PatientService extends GenericService<PatientRepository ,Patient, String> {
-    PatientRepository patientRepository;
+    private PatientRepository patientRepository;
 
     public PatientService(PatientRepository repository) {
         super(repository);
@@ -25,5 +25,8 @@ public class PatientService extends GenericService<PatientRepository ,Patient, S
         return super.create(item);
     }
 
-
+    @Override
+    public Patient getOne(String s) throws Exception {
+        return patientRepository.getAllByEmail(s).orElseThrow();
+    }
 }

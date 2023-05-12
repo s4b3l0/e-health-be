@@ -16,7 +16,7 @@ public class Patient implements Serializable {
     private List<Appointment> appointments;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Long getId() {
         return id;
     }
